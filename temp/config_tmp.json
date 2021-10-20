@@ -1,0 +1,8 @@
+{
+    "inbounds": [],
+    "outbounds": [],
+    "routing": {
+        "domainStrategy": "IPOnDemand",
+        "rules": []
+    }
+}
