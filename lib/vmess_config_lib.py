@@ -65,7 +65,10 @@ def vmess_config_gen(node, in_port):
     vmess_outbound_simple['settings']['vnext'][0]['port'] = int(node['port'])
     vmess_outbound_simple['settings']['vnext'][0]['users'][0]['id'] = node['id']
     vmess_outbound_simple['settings']['vnext'][0]['users'][0]['alterId'] = int(node['aid'])
-    vmess_outbound_simple['settings']['vnext'][0]['users'][0]['security'] = node['scy']
+    if 'scy' in node.keys():
+        vmess_outbound_simple['settings']['vnext'][0]['users'][0]['security'] = node['scy']
+    else:
+        vmess_outbound_simple['settings']['vnext'][0]['users'][0]['security'] = 'auto'
     vmess_outbound_simple['streamSettings']['network'] = node['net']
     vmess_outbound_simple['streamSettings']['security'] = node['tls']
     vmess_outbound_simple['streamSettings']['tlsSettings']['serverName'] = node['host']
